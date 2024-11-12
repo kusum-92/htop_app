@@ -10,7 +10,7 @@ def htop_view(request):
 
     
     try:
-        top_output = subprocess.check_output("tasklist", shell=True, text=True)
+        top_output = subprocess.check_output("top -bn1 | head -n 10", shell=True, text=True)
     except Exception as e:
         top_output = f"Could not retrieve task list: {str(e)}"
 
